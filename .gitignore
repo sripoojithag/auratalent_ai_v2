@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.venv/
+pyenv/
+node_modules/
+dist/
+__pycache__/
+.pytest_cache/
+backend/evaluation/data/
+firebase-applet-config.json

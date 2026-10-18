@@ -1,0 +1,18 @@
+{
+  "dataset_name": "AuraTalent AI Ranking Benchmark",
+  "version": "1.0",
+  "status": "awaiting_human_annotations",
+  "label_scale": {
+    "0": "Irrelevant: does not meet the job's relevant requirements",
+    "1": "Partially relevant: some useful skills or evidence, but important gaps",
+    "2": "Relevant: meets the main requirements with supporting evidence",
+    "3": "Highly relevant: strong evidence of meeting the important requirements"
+  },
+  "labeling_policy": {
+    "method": "Human review of job requirements against candidate evidence",
+    "use_model_scores_as_labels": false,
+    "require_evidence_for_each_judgment": true,
+    "exclude_personal_contact_information": true
+  },
+  "jobs": []
+}
