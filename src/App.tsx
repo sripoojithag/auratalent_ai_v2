@@ -2985,7 +2985,7 @@ export default function App() {
         body: JSON.stringify({
           jobDescriptionText: jobDescription,
           topKRetrieval,
-          useGeminiEmbedding,
+          useGeminiEmbedding:true,
           weights: {
             semantic: weights.semantic / 100,
             skills: weights.skills / 100,
@@ -3414,27 +3414,7 @@ export default function App() {
                   </select>
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Embedder Model</label>
-                  <div className="flex items-center space-x-1 bg-slate-50 border border-slate-200 p-0.5 rounded-xl">
-                    <button
-                      type="button"
-                      onClick={() => setUseGeminiEmbedding(false)}
-                      className={`flex-1 py-1.5 px-2 rounded-lg text-[10px] font-bold transition ${!useGeminiEmbedding ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
-                    >
-                      MiniLM
-                    </button>
-                    <button
-                      type="button"
-                      disabled={!systemStatus.envHasApiKey}
-                      onClick={() => setUseGeminiEmbedding(true)}
-                      className={`flex-1 py-1.5 px-2 rounded-lg text-[10px] font-bold transition disabled:opacity-40 disabled:cursor-not-allowed ${useGeminiEmbedding ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
-                      title={!systemStatus.envHasApiKey ? "Requires GEMINI_API_KEY environment variable" : "Use Google Cloud text-embedding-004"}
-                    >
-                      Gemini
-                    </button>
-                  </div>
-                </div>
+               
               </div>
             </div>
 
@@ -3443,7 +3423,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={handleRank}
-                disabled={loading || (!systemStatus.modelStatus.includes("loaded") && !useGeminiEmbedding)}
+                disabled={loading || (!systemStatus.modelStatus.includes("loaded"))}
                 className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-100 disabled:text-slate-400 disabled:border-slate-100 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-lg shadow-indigo-600/15 border border-indigo-500/20 transition cursor-pointer"
                 id="rank-button"
               >
